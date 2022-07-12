@@ -1,4 +1,4 @@
-
+import Data.List
 type Pos = (Int, Int)
 
 equal :: Pos -> Pos -> Bool
@@ -8,8 +8,8 @@ equal (x1, y1) (x2, y2) = x1 == x2 && y1 == y2
 findAllMove :: Pos ->  [Pos]
 findAllMove (x,y) = [(x-1, y), (x+1, y), (x, y-1), (x, y+1), (x-1,y-1), (x+1,y-1), (x-1,y+1), (x+1,y+1)]
 
-findPossibleMove :: Pos -> [Pos]
-findPossibleMove pos = filter inBound (findAllMove pos)
+findPossibleMove :: Pos -> [Pos] -> [Pos]
+findPossibleMove pos obs = (filter inBound (findAllMove pos)) \\ obs
 
 inBound :: Pos -> Bool
 inBound (x,y)
