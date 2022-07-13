@@ -42,6 +42,16 @@ pick options dest = pick' options dest (0,0) 162
             | otherwise = pick' ps dest bestOption minDistance
 
 
+-- this is used as an API to simplify the operation
+-- we set defaultly: 
+-- start = (0,0) 
+-- dest = (9,9)
+-- so the only argument is the obs
+go :: [Pos] -> ([Pos],Int)
+go obs = (result, length result) 
+    where
+        result = findPath (0,0) (9,9) obs []
+
 
 
 
